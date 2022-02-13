@@ -9,8 +9,23 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <h1>Ruby on Rails スケジュール管理アプリ</h1>
+  </header>
+
+  <div class "main_container">
+  <div class "information">
+    <h2>スケジュール一覧</h2>
+  </div>      
 
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+  <% if controller.action_name == "index" %>
+  <h1>現在の日時:<%= Time.new.strftime("%Y/%m/%d") %> スケジュール合計: <%= @schejules.count %></h1>
+  <% end %>
+  </footer>
 </html>
+

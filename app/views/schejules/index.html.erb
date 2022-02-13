@@ -1,0 +1,49 @@
+<% if flash[:notice] %>
+<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+    <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>開始日</th>
+            <th>終了日</th>
+            <th>終日</th>
+            <th>スケジュール更新日時</th>
+            <th>確認</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @schejules.each do |schejule| %>
+          <tr>
+            <td><%= schejule.id %></td>
+            <td><%= schejule.title %></td>
+            <td><%= l schejule.startdate,format: :default %></td> 
+            <td><%= l schejule.enddate,format: :default %></td>
+            <td>
+            <% if schejule.allday == true %>
+            ○
+            <% else %>
+            <% end %>
+            </td>
+            <td><%= l schejule.updated_at,format: :default %></td>
+            <td>
+            <%= link_to "確認", schejule %>
+            </td>
+            <td>
+            <%= link_to "編集", [:edit, schejule] %>
+            </td>
+            <td>
+              <%= link_to "削除", schejule, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </td>
+          </tr>
+        <% end %>
+    </tbody>
+    </table>
+     
+        <p><%= link_to "スケジュール新規登録", :new_schejule %></p>
+        
