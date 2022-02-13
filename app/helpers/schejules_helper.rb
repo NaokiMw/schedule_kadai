@@ -1,0 +1,2 @@
+module SchejulesHelper
+end
