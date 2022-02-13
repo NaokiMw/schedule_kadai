@@ -2,4 +2,4 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
-      short: "%Y年%m月%d日 "
+      short: "%Y年%m月%d日 " 

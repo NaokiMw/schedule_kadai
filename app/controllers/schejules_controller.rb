@@ -16,6 +16,7 @@ class SchejulesController < ApplicationController
     end
   end
 
+  
   def show
     @schejule = Schejule.find(params[:id])
   end
